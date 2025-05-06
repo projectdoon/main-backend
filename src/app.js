@@ -1,6 +1,8 @@
 import express  from "express";
 import cors from "cors";
 import path from "path";
+const body_parser=require('body-parser');
+
 const app = express();
 
 import AlertsRouter from "./routes/alerts/alerts.routes.js";
