@@ -5,7 +5,7 @@ const app = express();
 
 const AlertsRouter = require("./routes/alerts/alerts.routes");
 const ComplainsRouter = require("./routes/complains/complains.routes");
-const temp = require("./routes/temperature/temperature");
+const temp = require("./generals/temperature/temperature");
 const SchemeRouter = require("./routes/schemes/SchemesRouter");
 const attendanceRoutes = require("./routes/Staff/routes/attendanceRoutes");
 const totalGarbageRoutes = require("./routes/Staff/routes/totalGarbageRoutes");

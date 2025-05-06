@@ -1,7 +1,7 @@
 // routes/srRoutes.js
 
 const express = require("express");
-const { addSRData, getSRData } = require("../controllers/srController");
+const { addSRData, getSRData } = require("../../../controllers/staff/srController");
 
 const router = express.Router();
 

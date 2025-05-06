@@ -1,4 +1,4 @@
-const AllVehicleData = require("../../../models/Staff/avData");
+const AllVehicleData = require("../../models/Staff/avData");
 
 exports.addAVData = async (req, res) => {
   try {

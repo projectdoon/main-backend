@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { addAVData, getAVData } = require("../controllers/avController");
+const { addAVData, getAVData } = require("../../../controllers/staff/avController");
 
 // Route for adding AV data
 router.post("/add", addAVData);

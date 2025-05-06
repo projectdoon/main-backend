@@ -1,5 +1,5 @@
 // controllers/schemeController.js
-const Scheme = require('../../models/schemes/Schemes.mongo');
+const Scheme = require('../models/schemes/Schemes.mongo');
 
 // Function to generate a new ID for the scheme
 const generateId = async () => {

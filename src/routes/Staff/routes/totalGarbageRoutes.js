@@ -3,7 +3,7 @@ const express = require("express");
 const {
   addTotalGarbageData,
   getTotalGarbageData,
-} = require("../controllers/totalGarbageController");
+} = require("../../../controllers/staff/totalGarbageController");
 
 const router = express.Router();
 

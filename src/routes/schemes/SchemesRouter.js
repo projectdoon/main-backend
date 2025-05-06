@@ -1,5 +1,5 @@
 const express = require('express');
-const SchemeController =require("./SchemesController");
+const SchemeController =require("../../controllers/SchemesController");
 
 const SchemeRouter = express.Router();
 

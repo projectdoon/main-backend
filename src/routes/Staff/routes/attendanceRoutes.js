@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const attendanceController = require("../controllers/attendanceController");
+const attendanceController = require("../../../controllers/staff/attendanceController");
 
 // Route to add attendance data
 router.post("/add", attendanceController.addAttendance);

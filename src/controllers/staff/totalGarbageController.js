@@ -1,4 +1,4 @@
-const TotalGarbageData = require("../../../models/Staff/tgData");
+const TotalGarbageData = require("../../models/Staff/tgData");
 
 exports.addTotalGarbageData = async (req, res) => {
   try {
