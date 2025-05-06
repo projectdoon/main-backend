@@ -1,6 +1,6 @@
-const http = require('http');
-const mongoose = require('mongoose');
-const app = require('./app');
+import http from 'http';
+import mongoose from 'mongoose';
+import app from './app.js';
 
 const port = process.env.PORT || 8000;
 
