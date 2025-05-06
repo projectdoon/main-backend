@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// complain schema
+model Complain {
+  id          String   @id @default(uuid())
+  userId      String
+  Category    String
+  Description String
+  Imageurl    String
+  Status      Int
+  Burst       Int
+  Lat         Float
+  Long        Float
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@map("complains") 
+}
+
+// user schema
+model User {
+  id        String   @id @default(uuid())
+  phoneNo   Int      @unique
+  firstName String
+  lastName  String
+  Lat       Float
+  Long      Float
+  email     String   @unique
+  complains Complain[]
+  
+  @@map("users") 
+}
+
