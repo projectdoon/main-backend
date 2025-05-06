@@ -15,7 +15,7 @@ pnpm-debug.log*
 # Environment variables
 .env
 .env.*.local
-
+generated
 # System files
 .DS_Store
 Thumbs.db

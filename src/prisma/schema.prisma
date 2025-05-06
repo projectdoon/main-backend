@@ -38,3 +38,28 @@ model User {
   @@map("users") 
 }
 
+//alert
+model Alert {
+  id       Int      @id @default(autoincrement())
+  alert    String
+  category Category
+
+  @@map("alerts")
+}
+
+// enum for category
+enum Category {
+  cat1
+  cat2
+  cat3
+}
+
+model Scheme {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  url         String
+  category    String
+
+  @@map("schemes") 
+}
