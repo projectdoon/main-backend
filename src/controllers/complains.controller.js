@@ -1,6 +1,6 @@
-const Complain = require("../models/complains/complains.mongo");
+import Complain from "../models/complains/complains.mongo.js";
 
-const getWaterComplaints = async () => {
+export const getWaterComplaints = async () => {
   try {
     const complaints = await Complain.find({ Category: "water" });
     return complaints;
@@ -10,7 +10,7 @@ const getWaterComplaints = async () => {
   }
 };
 
-const getGarbageComplaints = async () => {
+export const getGarbageComplaints = async () => {
   try {
     const complaints = await Complain.find({ Category: "garbage" });
     return complaints;
@@ -20,7 +20,7 @@ const getGarbageComplaints = async () => {
   }
 };
 
-const getDeadComplaints = async () => {
+export const getDeadComplaints = async () => {
   try {
     const complaints = await Complain.find({ Category: "dead" });
     return complaints;
@@ -30,7 +30,7 @@ const getDeadComplaints = async () => {
   }
 };
 
-const getAllComplaints = async () => {
+export const getAllComplaints = async () => {
   try {
     const complaints = await Complain.find({});
     return complaints;
@@ -41,7 +41,7 @@ const getAllComplaints = async () => {
 };
 
 // Function to mark a complaint as solved
-const markComplaintAsSolved = async (id) => {
+export const markComplaintAsSolved = async (id) => {
   try {
     const updatedComplaint = await Complain.findByIdAndUpdate(
       id,
@@ -53,13 +53,4 @@ const markComplaintAsSolved = async (id) => {
     console.error("Error marking complaint as solved:", error);
     throw error;
   }
-};
-
-// Export the functions for use in other parts of the app
-module.exports = {
-  getWaterComplaints,
-  getGarbageComplaints,
-  getDeadComplaints,
-  getAllComplaints,
-  markComplaintAsSolved,
 };

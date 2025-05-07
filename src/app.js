@@ -1,7 +1,20 @@
-import express  from "express";
+import express from "express";
 import cors from "cors";
 import path from "path";
-import body_parser from "body-parser";
+import { fileURLToPath } from 'url';
+import bodyParser from 'body-parser';
+import AlertsRouter from "./routes/alerts/alerts.routes.js";
+import ComplainsRouter from "./routes/complains/complains.routes.js";
+import temp from "./generals/temperature/temperature.js";
+import SchemeRouter from "./routes/schemes/SchemesRouter.js";
+// import attendanceRoutes from "./routes/Staff/routes/attendanceRoutes.js";
+// import totalGarbageRoutes from "./routes/Staff/routes/totalGarbageRoutes.js";
+// import srRoutes from "./routes/Staff/routes/srRoutes.js";
+// import maintenanceRoutes from "./routes/Staff/routes/maintenanceRoutes.js";
+// import avRoutes from "./routes/Staff/routes/avRoutes.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(body_parser.json());

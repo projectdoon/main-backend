@@ -21,4 +21,4 @@ class SchemeService {
   }
 }
 
-module.exports = new SchemeService();
+export default new SchemeService();

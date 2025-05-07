@@ -31,7 +31,7 @@
 //     res.status(500).json({ error: 'Error fetching schemes' });
 //   }
 // };
-const schemeService = require("../services/schemes/schemes.service");
+import schemeService from "../services/schemes/schemes.service.js";
 
 class SchemeController {
   async createScheme(req, res) {
@@ -62,5 +62,4 @@ class SchemeController {
   }
 }
 
-
-module.exports = new SchemeController();
+export default new SchemeController();
