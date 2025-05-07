@@ -43,8 +43,8 @@ app.use("user/complains", appComplainRoutes);
 app.use("/", temp);
 
 // Catch all other requests and return the React app
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../frontend/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../../frontend/build/index.html"));
+// });
 
 export default app;

@@ -1,7 +1,7 @@
 import alertService from "../services/alerts/alert.service.js";
 
 class AlertController {
-  async getAllAlerts(req, res) {
+  async getAllAlertsAdmin(req, res) {
     try {
       const alerts = await alertService.getAllAlerts();
       res.status(200).json(alerts);
@@ -28,7 +28,7 @@ class AlertController {
   // app
   async fetchAlert(req, res, next) {
     try {
-      const data = await this.alertService.getAlerts();
+      const data = await alertService.getAlerts();
       
       if (!data) {
         return res.status(400).json({ status: false, message: "alert failed" });
@@ -46,7 +46,7 @@ class AlertController {
 
   async getAllAlerts(req, res, next) {
     try {
-      const alerts = await this.alertService.getAllAlertsData();
+      const alerts = await alertService.getAllAlertsData();
       
       if (!alerts || alerts.length === 0) {
         return res.status(400).json({ status: false, message: 'failed to get alerts' });
