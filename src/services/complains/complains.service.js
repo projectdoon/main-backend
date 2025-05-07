@@ -44,7 +44,8 @@
 import prisma from "../db.js";
 
 class ComplainService {
-  async getComplaintsByCategory({ category }) {
+  async getComplaintsByCategory(category) {
+
     return await prisma.complain.findMany({
       where: { Category: category },
     });
