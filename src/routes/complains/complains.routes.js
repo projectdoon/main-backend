@@ -6,10 +6,7 @@ import {
   getWaterComplaints,
   getDeadComplaints,
   markComplaintAsSolved,
-  registerUserComplain,
-  getUserComplain
 } from "../../controllers/complains.controller.js";
-import verifyToken from '../../middlewares/verifyToken.js';
 
 const ComplainsRouter = express.Router();
 
@@ -67,9 +64,5 @@ ComplainsRouter.post("/mark-solved/:id", async (req, res) => {
       .json({ message: "Error marking complaint as solved", error });
   }
 });
-
-// app
-ComplainsRouter.post('/complainreg', verifyToken, registerUserComplain);
-ComplainsRouter.post('/getComplainList', verifyToken, getUserComplain);
 
 export default ComplainsRouter;

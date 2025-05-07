@@ -44,9 +44,9 @@ class AlertController {
     }
   }
 
-  async getAlerts(req, res, next) {
+  async getAllAlerts(req, res, next) {
     try {
-      const alerts = await this.alertService.getAlertsData();
+      const alerts = await this.alertService.getAllAlertsData();
       
       if (!alerts || alerts.length === 0) {
         return res.status(400).json({ status: false, message: 'failed to get alerts' });

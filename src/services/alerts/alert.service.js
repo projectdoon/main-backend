@@ -53,7 +53,7 @@ class AlertService {
     }
   }
 
-  async getAlertsData() {
+  async getAllAlertsData() {
     try {
       const allAlerts = await prisma.alert.findMany({
         select: {
