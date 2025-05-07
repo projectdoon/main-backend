@@ -1,19 +1,22 @@
-import express  from "express";
+import express from "express";
 import cors from "cors";
 import path from "path";
-const body_parser=require('body-parser');
+import { fileURLToPath } from 'url';
+import bodyParser from 'body-parser';
+import AlertsRouter from "./routes/alerts/alerts.routes.js";
+import ComplainsRouter from "./routes/complains/complains.routes.js";
+import temp from "./generals/temperature/temperature.js";
+import SchemeRouter from "./routes/schemes/SchemesRouter.js";
+// import attendanceRoutes from "./routes/Staff/routes/attendanceRoutes.js";
+// import totalGarbageRoutes from "./routes/Staff/routes/totalGarbageRoutes.js";
+// import srRoutes from "./routes/Staff/routes/srRoutes.js";
+// import maintenanceRoutes from "./routes/Staff/routes/maintenanceRoutes.js";
+// import avRoutes from "./routes/Staff/routes/avRoutes.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
-
-import AlertsRouter from "./routes/alerts/alerts.routes.js";
-const ComplainsRouter = require("./routes/complains/complains.routes.js");
-const temp = require("./generals/temperature/temperature.js");
-const SchemeRouter = require("./routes/schemes/SchemesRouter.js");
-// const attendanceRoutes = require("./routes/Staff/routes/attendanceRoutes");
-// const   totalGarbageRoutes = require("./routes/Staff/routes/totalGarbageRoutes");
-// const srRoutes = require("./routes/Staff/routes/srRoutes");
-// const maintenanceRoutes = require("./routes/Staff/routes/maintenanceRoutes");
-// const avRoutes = require("./routes/Staff/routes/avRoutes");
 
 app.use(cors());
 app.use(express.json());

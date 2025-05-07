@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const ComplainsSchema = new mongoose.Schema({
   Category: {
@@ -24,7 +24,8 @@ const ComplainsSchema = new mongoose.Schema({
   Long: {
     type: Number,
     required: true,
-  }
+  },
 });
 
-module.exports = mongoose.model('Complain', ComplainsSchema);
+const Complain = mongoose.model("Complain", ComplainsSchema);
+export default Complain;

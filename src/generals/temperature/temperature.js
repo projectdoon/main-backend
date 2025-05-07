@@ -1,16 +1,14 @@
-const express = require('express');
-const axios = require('axios');
-
+import express from "express";
+import axios from "axios";
 
 const temp = express.Router();
-
 
 const DEHRADUN_COORDS = {
   lat: 30.3165,
   lon: 78.0322,
 };
 
-temp.get('/temperature', async (req, res) => {
+temp.get("/temperature", async (req, res) => {
   try {
     const { lat, lon } = DEHRADUN_COORDS;
 
@@ -25,9 +23,9 @@ temp.get('/temperature', async (req, res) => {
     // Send temperature back as JSON
     res.json({ temperature });
   } catch (error) {
-    console.error('Error fetching temperature:', error);
-    res.status(500).json({ error: 'Failed to fetch temperature' });
+    console.error("Error fetching temperature:", error);
+    res.status(500).json({ error: "Failed to fetch temperature" });
   }
 });
 
-module.exports = temp;
+export default temp;

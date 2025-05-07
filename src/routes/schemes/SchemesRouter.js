@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 // const SchemeController =require("../../controllers/SchemesController");
 
 // const SchemeRouter = express.Router();
@@ -10,7 +10,7 @@ const express = require('express');
 // module.exports = SchemeRouter;
 // // routes/scheme.routes.js
 // const express = require("express");
-const schemeController = require("../../controllers/SchemesController");
+import schemeController from "../../controllers/SchemesController.js";
 
 const SchemeRouter = express.Router();
 
@@ -18,4 +18,4 @@ const SchemeRouter = express.Router();
 SchemeRouter.post("/", schemeController.createScheme);
 SchemeRouter.get("/", schemeController.getAllSchemes);
 
-module.exports = SchemeRouter;
+export default SchemeRouter;

@@ -1,12 +1,12 @@
-const express = require("express");
-const Complain = require("../../models/complains/complains.mongo.js");
-const {
+import express from "express";
+import Complain from "../../models/complains/complains.mongo.js";
+import {
   getAllComplaints,
   getGarbageComplaints,
   getWaterComplaints,
   getDeadComplaints,
   markComplaintAsSolved,
-} = require("../../controllers/complains.controller");
+} from "../../controllers/complains.controller.js";
 
 const ComplainsRouter = express.Router();
 
@@ -65,4 +65,4 @@ ComplainsRouter.post("/mark-solved/:id", async (req, res) => {
   }
 });
 
-module.exports = ComplainsRouter;
+export default ComplainsRouter;
