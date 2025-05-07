@@ -1,7 +1,5 @@
-const { PrismaClient } = require('@prisma/client');
-const jwt = require('jsonwebtoken');
-
-const prisma = new PrismaClient();
+import jwt from 'jsonwebtoken'
+import prisma from '../db.js';
 
 class UserServices {
   static async registerUser(phoneNo, firstName, lastName, Lat, Long, email) {

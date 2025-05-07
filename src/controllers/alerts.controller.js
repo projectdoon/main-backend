@@ -24,33 +24,41 @@ class AlertController {
       res.status(400).json({ error: error.message });
     }
   }
+
+  // app
+  async fetchAlert(req, res, next) {
+    try {
+      const data = await this.alertService.getAlerts();
+      
+      if (!data) {
+        return res.status(400).json({ status: false, message: "alert failed" });
+      }
+      
+      res.json({ status: true, success: "alertsuccessfully", tokendata: data.alert });
+    } catch (error) {
+      res.status(500).json({
+        status: false,
+        message: "alert Internal server error",
+        error: error.message,
+      });
+    }
+  }
+
+  async getAlerts(req, res, next) {
+    try {
+      const alerts = await this.alertService.getAlertsData();
+      
+      if (!alerts || alerts.length === 0) {
+        return res.status(400).json({ status: false, message: 'failed to get alerts' });
+      }
+      
+      res.json({ status: true, success: alerts });
+    } catch (error) {
+      res.status(500).json({ status: false, message: 'alert Internal server error', error: error.message });
+    }
+  }
+
 }
 
 export default new AlertController();
 
-
-// const { getAllAlerts, addAlert } = require("../models/alerts/alerts.model");
-
-// async function httpgetAllAlerts(req, res) {
-//   const alerts = await getAllAlerts();
-//   return res.status(200).json(alerts);
-// }
-
-// async function httpAddAlert(req, res) {
-//   const { Alert, category } = req.body; // Destructure Alert and category from request body
-//   if (!Alert || !category) {
-//     return res.status(400).json({ error: "Alert and category are required" });
-//   }
-
-//   try {
-//     const newAlert = await addAlert({ Alert, category }); // Pass the category to addAlert
-//     return res.status(201).json(newAlert);
-//   } catch (err) {
-//     return res.status(400).json({ error: err.message });
-//   }
-// }
-
-// module.exports = {
-//   httpgetAllAlerts,
-//   httpAddAlert,
-// };

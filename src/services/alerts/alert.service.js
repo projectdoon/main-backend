@@ -27,6 +27,49 @@ class AlertService {
       await prisma.$disconnect();
     }
   }
+
+  //app
+  async getAlerts() {
+    try {
+      const data = await prisma.alert.findFirst({
+        orderBy: {
+          id: 'desc'
+        }
+      });
+      
+      console.log("Latest Alert Data fetched");
+
+      if (data) {
+        return data;
+      } else {
+        console.log("No alerts found");
+        return null;
+      }
+    } catch (error) {
+      console.error("Error fetching alerts:", error);
+      throw error;
+    } finally {
+      await prisma.$disconnect();
+    }
+  }
+
+  async getAlertsData() {
+    try {
+      const allAlerts = await prisma.alert.findMany({
+        select: {
+          alert: true
+        }
+      });
+      
+      return allAlerts
+    } catch (error) {
+      console.error("Error fetching alerts:", error);
+      throw error;
+    } finally {
+      await prisma.$disconnect();
+    }
+  }
 }
+
 
 export default new AlertService();
