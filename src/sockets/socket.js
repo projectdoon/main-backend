@@ -95,4 +95,5 @@ async function setupPrismaSubscription(io) {
     }, 1000); // Check every second
 }
 
-module.exports = setupSocket;
+// module.exports = setupSocket;
+export default setupSocket;

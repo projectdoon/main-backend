@@ -1,6 +1,7 @@
 import http from 'http';
 import mongoose from 'mongoose';
 import app from './app.js';
+import setupSocket from './sockets/socket.js';
 
 const port = process.env.PORT || 8000;
 
@@ -12,7 +13,7 @@ const mongooseOptions = {
 };
 
 const server = http.createServer(app);
-
+setupSocket(server);
 mongoose.connection.once('open', () => {
     console.log('MongoDB connection is ready...');
 });

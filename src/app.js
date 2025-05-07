@@ -1,14 +1,15 @@
 import express  from "express";
 import cors from "cors";
 import path from "path";
-const body_parser=require('body-parser');
+import body_parser from "body-parser";
 
 const app = express();
+app.use(body_parser.json());
 
 import AlertsRouter from "./routes/alerts/alerts.routes.js";
-const ComplainsRouter = require("./routes/complains/complains.routes.js");
-const temp = require("./generals/temperature/temperature.js");
-const SchemeRouter = require("./routes/schemes/SchemesRouter.js");
+import ComplainsRouter from "./routes/complains/complains.routes.js";
+import temp from "./generals/temperature/temperature.js";
+import SchemeRouter from "./routes/schemes/SchemesRouter.js";
 // const attendanceRoutes = require("./routes/Staff/routes/attendanceRoutes");
 // const   totalGarbageRoutes = require("./routes/Staff/routes/totalGarbageRoutes");
 // const srRoutes = require("./routes/Staff/routes/srRoutes");

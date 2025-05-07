@@ -65,4 +65,5 @@ ComplainsRouter.post("/mark-solved/:id", async (req, res) => {
   }
 });
 
-module.exports = ComplainsRouter;
+// module.exports = ComplainsRouter;
+export default ComplainsRouter

@@ -30,4 +30,5 @@ temp.get('/temperature', async (req, res) => {
   }
 });
 
-module.exports = temp;
+// module.exports = temp;
+export default temp

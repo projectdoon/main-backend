@@ -18,4 +18,5 @@ const SchemeRouter = express.Router();
 SchemeRouter.post("/", schemeController.createScheme);
 SchemeRouter.get("/", schemeController.getAllSchemes);
 
-module.exports = SchemeRouter;
+// module.exports = SchemeRouter;
+export default SchemeRouter
