@@ -1,4 +1,4 @@
-import UserServices from '../services/user.services';
+import UserServices from '../services/user/user.services';
 const { PrismaClientKnownRequestError } = require('@prisma/client/runtime');
 
 exports.register = async (req, res, next) => {
