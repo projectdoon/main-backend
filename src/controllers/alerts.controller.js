@@ -11,14 +11,14 @@ class AlertController {
   }
 
   async createAlert(req, res) {
-    const { alert, category } = req.body;
+    const { Alert, category } = req.body;
 
-    if (!alert || !category) {
+    if (!Alert || !category) {
       return res.status(400).json({ error: "Alert and category are required" });
     }
 
     try {
-      const newAlert = await alertService.createAlert({ alert, category });
+      const newAlert = await alertService.createAlert({ alert:Alert, category });
       res.status(201).json(newAlert);
     } catch (error) {
       res.status(400).json({ error: error.message });
