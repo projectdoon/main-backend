@@ -2,15 +2,15 @@ import jwt from 'jsonwebtoken'
 import prisma from '../db.js';
 
 class UserServices {
-  static async registerUser(phoneNo, firstName, lastName, Lat, Long, email) {
+  async registerUser(phoneNo, firstName, lastName, Lat, Long, email) {
     try {
       return await prisma.user.create({
         data: {
           phoneNo,
           firstName,
           lastName,
-          lat: Lat ? parseFloat(Lat) : null,
-          long: Long ? parseFloat(Long) : null,
+          Lat,
+          Long,
           email
         }
       });
@@ -19,7 +19,7 @@ class UserServices {
     }
   }
 
-  static async checkUser(phoneNo) {
+  async checkUser(phoneNo) {
     try {
       return await prisma.user.findUnique({
         where: {
@@ -31,9 +31,9 @@ class UserServices {
     }
   }
 
-  static async generateToken(tokenData, secretKey, jwt_expire) {
+  async generateToken(tokenData, secretKey, jwt_expire) {
     return jwt.sign(tokenData, secretKey, { expiresIn: jwt_expire });
   }
 }
 
-module.exports = UserServices;
+export default new UserServices();

@@ -73,6 +73,14 @@ class ComplainService {
     Long,
   }) {
     try {
+      console.log(userId,
+        Category,
+        Description,
+        Imageurl,
+        Status,
+        Burst,
+        Lat,
+        Long,)
       return await prisma.complain.create({
         data: {
           userId,
