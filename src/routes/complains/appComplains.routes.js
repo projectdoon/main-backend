@@ -9,13 +9,13 @@ import verifyToken from "../../middlewares/verifyToken.js";
 const router = express.Router();
 
 router.post(
-  "/complainreg",
-  verifyToken,
+  "/register",
+  // verifyToken,
   complainController.registerUserComplain
 );
 router.post(
   "/getComplainList",
-  verifyToken,
+  // verifyToken,
   complainController.getUserComplain
 );
 

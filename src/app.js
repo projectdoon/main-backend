@@ -14,6 +14,8 @@ import SchemeRouter from "./routes/schemes/SchemesRouter.js";
 // import avRoutes from "./routes/Staff/routes/avRoutes.js";
 import appAlertRoutes from "./routes/alerts/appAlerts.routes.js";
 import appComplainRoutes from "./routes/complains/appComplains.routes.js";
+import userRoutes from './routes/user/user.routes.js'
+import ipRoutes from './routes/ip/ip.routes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -38,8 +40,11 @@ app.use("/admin/scheme", SchemeRouter);
 // app.use("/admin/allvehicle", avRoutes);
 
 // user
+app.use('/auth', userRoutes);
+app.use("/user/complains", appComplainRoutes);
 app.use("/user/alerts", appAlertRoutes);
-app.use("user/complains", appComplainRoutes);
+app.use('/', ipRoutes);
+
 app.use("/", temp);
 
 // Catch all other requests and return the React app
