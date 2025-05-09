@@ -4,7 +4,7 @@ import complainController from "../../controllers/complains.controller.js";
 //   registerUserComplain,
 //   getUserComplain
 // } from "../../controllers/complains.controller.js";
-import verifyToken from "../../middlewares/verifyToken.js";
+import verifyToken from "../../generals/middlewares/verifyToken.js";
 
 const router = express.Router();
 
@@ -14,10 +14,6 @@ router.post(
   complainController.registerUserComplain
 );
 
-router.get(
-  "/getComplainList",
-  verifyToken,
-  complainController.getUserComplain
-);
+router.get("/getComplainList", verifyToken, complainController.getUserComplain);
 
 export default router;
