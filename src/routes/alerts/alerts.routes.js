@@ -6,4 +6,5 @@ const AlertsRouter = express.Router();
 AlertsRouter.get("/", AlertController.getAllAlertsAdmin);
 AlertsRouter.post("/", AlertController.createAlert);
 
+
 export default AlertsRouter;

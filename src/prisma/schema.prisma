@@ -62,3 +62,32 @@ model Scheme {
 
   @@map("schemes") 
 }
+
+model Project {
+  id                 Int      @id @default(autoincrement())
+  projectName        String
+  departmentName     String
+  projectDescription String   @db.Text
+  startDate          DateTime
+  endDate            DateTime
+  addressLineOne     String?
+  addressLineTwo     String?
+  district           String
+  state              String
+  authorityName      String
+  organization       String
+  status             Int    
+  uploadedBy         String
+
+   projectDates  ProjectDate[]
+   @@map("projects") 
+}
+
+model ProjectDate {
+  id              Int      @id @default(autoincrement())
+  dateDescription String
+  dateName        String
+  date            DateTime
+  projectID       Int
+  project         Project  @relation(fields: [projectID], references: [id], onDelete: Cascade)
+}
