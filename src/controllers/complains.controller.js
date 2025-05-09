@@ -236,7 +236,6 @@ class ComplainController {
         Lat,
         Long,
       } = req.body;
-
       const successRes = await complainService.registerComplain(
         userId,
         Category,

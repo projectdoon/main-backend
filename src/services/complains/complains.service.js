@@ -62,7 +62,7 @@ class ComplainService {
     });
   }
 
-  async registerComplain({
+  async registerComplain(
     userId,
     Category,
     Description,
@@ -71,16 +71,8 @@ class ComplainService {
     Burst,
     Lat,
     Long,
-  }) {
+  ) {
     try {
-      console.log(userId,
-        Category,
-        Description,
-        Imageurl,
-        Status,
-        Burst,
-        Lat,
-        Long,)
       return await prisma.complain.create({
         data: {
           userId,
