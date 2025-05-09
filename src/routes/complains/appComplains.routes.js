@@ -13,9 +13,10 @@ router.post(
   // verifyToken,
   complainController.registerUserComplain
 );
-router.post(
+
+router.get(
   "/getComplainList",
-  // verifyToken,
+  verifyToken,
   complainController.getUserComplain
 );
 
