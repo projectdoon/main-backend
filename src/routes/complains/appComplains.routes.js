@@ -1,16 +1,12 @@
 import express from "express";
 import complainController from "../../controllers/complains.controller.js";
-// import {
-//   registerUserComplain,
-//   getUserComplain
-// } from "../../controllers/complains.controller.js";
 import verifyToken from "../../generals/middlewares/verifyToken.js";
 
 const router = express.Router();
 
 router.post(
   "/register",
-  // verifyToken,
+  verifyToken,
   complainController.registerUserComplain
 );
 
