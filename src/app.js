@@ -9,7 +9,7 @@ import appComplainRoutes from "./routes/complains/appComplains.routes.js";
 import authRoutes from './routes/auth/auth.routes.js'
 import ipRoutes from './routes/ip/ip.routes.js';
 import Projectsrouter from "./routes/capa/capa.routes.js";
-
+import UserRoutes from './routes/user/user.routes.js'
 
 const app = express();
 
@@ -24,9 +24,10 @@ app.use("/admin/scheme", SchemeRouter);
 app.use("/admin/projects", Projectsrouter);
 
 // user
-app.use('/auth', authRoutes);
-app.use("/user/complains", appComplainRoutes);
-app.use("/user/alerts", appAlertRoutes);
+app.use('/api//auth', authRoutes);
+app.use('/api/user', UserRoutes);
+app.use("/api/complains", appComplainRoutes);
+app.use("/api/alerts", appAlertRoutes);
 app.use('/', ipRoutes);
 
 app.use("/", temp);
