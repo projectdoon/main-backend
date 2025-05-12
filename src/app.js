@@ -6,7 +6,7 @@ import temp from "./generals/temperature/temperature.js";
 import SchemeRouter from "./routes/schemes/SchemesRouter.js";
 import appAlertRoutes from "./routes/alerts/appAlerts.routes.js";
 import appComplainRoutes from "./routes/complains/appComplains.routes.js";
-import userRoutes from './routes/user/user.routes.js'
+import authRoutes from './routes/auth/auth.routes.js'
 import ipRoutes from './routes/ip/ip.routes.js';
 import Projectsrouter from "./routes/capa/capa.routes.js";
 
@@ -24,7 +24,7 @@ app.use("/admin/scheme", SchemeRouter);
 app.use("/admin/projects", Projectsrouter);
 
 // user
-app.use('/auth', userRoutes);
+app.use('/auth', authRoutes);
 app.use("/user/complains", appComplainRoutes);
 app.use("/user/alerts", appAlertRoutes);
 app.use('/', ipRoutes);

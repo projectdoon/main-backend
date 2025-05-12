@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import prisma from '../db.js';
 
-class UserServices {
+class AuthServices {
   async registerUser(phoneNo, firstName, lastName, Lat, Long, email) {
     try {
       return await prisma.user.create({
@@ -36,4 +36,4 @@ class UserServices {
   }
 }
 
-export default new UserServices();
+export default new AuthServices();
