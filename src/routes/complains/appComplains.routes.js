@@ -9,7 +9,7 @@ router.post(
   verifyToken,
   complainController.registerUserComplain
 );
-
 router.get("/getComplainList", verifyToken, complainController.getUserComplain);
+router.patch('/updateComplain', verifyToken, complainController.updateComplainStatus)
 
 export default router;

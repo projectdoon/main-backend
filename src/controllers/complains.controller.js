@@ -223,8 +223,9 @@ class ComplainController {
       res.status(500).json({ error: "Error updating complaint status" });
     }
   }
+
   // app
-  async registerUserComplain(req, res, next) {
+  async registerUserComplain(req, res) {
     try {
       const {
         userId,
@@ -263,7 +264,7 @@ class ComplainController {
     }
   }
 
-  async getUserComplain(req, res, next) {
+  async getUserComplain(req, res) {
     try {
       const { id: userId } = req.user;
       const complains = await complainService.getComplainData(userId);
@@ -273,15 +274,59 @@ class ComplainController {
           .status(400)
           .json({ status: false, message: "No complaints found for the user" });
       }
-
-      console.log("Complaint list fetched successfully");
-
       res.json({ status: true, success: complains });
     } catch (error) {
       res.status(500).json({
         status: false,
         message: "Internal server error while fetching complaints",
         error: error.message,
+      });
+    }
+  }
+
+  async updateComplainStatus(req,res) {
+    try {
+      const { id } = req.body;
+
+      const complaint = await complainService.getComplaintById(id);
+      
+      if (!complaint) {
+        return res.status(404).json({
+          status: false,
+          message: 'Complaint not found'
+        });
+      }
+      
+      if (complaint.Status > 1 && complaint.Burst > 1) {
+        return res.status(400).json({
+          status: false,
+          message: 'Complaint status and burst are already updated'
+        });
+      }
+      
+      const updateStatus = await complainService.updateComplaintStatus(id);
+      const updateBurst = await complainService.updateComplaintBurst(id);
+    
+      if (!updateStatus || !updateBurst) {
+        return res.status(500).json({
+          status: false,
+          message: 'Failed to update complaint'
+        });
+      }
+      
+      return res.status(200).json({
+        status: true,
+        message: 'Complaint status and burst updated successfully',
+        complaint: {
+          ...complaint
+        }
+      });
+    } catch (error) {
+      console.error('Error updating complaint status:', error);
+      return res.status(500).json({
+        status: false,
+        message: 'Internal server error',
+        error: error.message
       });
     }
   }

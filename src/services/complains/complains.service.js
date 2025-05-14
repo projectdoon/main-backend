@@ -55,6 +55,19 @@ class ComplainService {
     return await prisma.complain.findMany();
   }
 
+  async getComplaintById(id) {
+    try {
+      return await prisma.complain.findUnique({
+        where: {
+          id: id
+        }
+      });
+    } catch (error) {
+      console.error('Error in getComplaintById service:', error);
+      throw error;
+    }
+  }
+
   async markComplaintAsSolved({ id }) {
     return await prisma.complain.update({
       where: { id },
@@ -108,6 +121,38 @@ class ComplainService {
         },
       });
     } catch (error) {
+      throw error;
+    }
+  }
+
+  async updateComplaintStatus(id) {
+    try {
+      return await prisma.complain.update({
+        where: {
+          id: id
+        },
+        data: {
+          Status: 2
+        }
+      });
+    } catch (error) {
+      console.error('Error in updateComplaintStatus service:', error);
+      throw error;
+    }
+  }
+
+  async updateComplaintBurst(id) {
+    try {
+      return await prisma.complain.update({
+        where: {
+          id: id
+        },
+        data: {
+          Burst: 2
+        }
+      });
+    } catch (error) {
+      console.error('Error in updateComplaintBurst service:', error);
       throw error;
     }
   }
