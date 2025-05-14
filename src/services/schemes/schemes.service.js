@@ -13,7 +13,18 @@ class SchemeService {
   }
 
   async getAllSchemes() {
-    return await prisma.scheme.findMany();
+    try {
+      const schemes = await prisma.scheme.findMany({
+        orderBy: {
+          name: 'asc'
+        }
+      });
+      
+      return schemes;
+    } catch (error) {
+      console.error('Error in getAllSchemes service:', error);
+      throw error;
+    }
   }
 
   async disconnect() {
