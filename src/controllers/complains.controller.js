@@ -318,7 +318,9 @@ class ComplainController {
         status: true,
         message: 'Complaint status and burst updated successfully',
         complaint: {
-          ...complaint
+          ...complaint,
+          Status: 2,
+          Burst: 2
         }
       });
     } catch (error) {
