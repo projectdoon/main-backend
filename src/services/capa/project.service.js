@@ -20,7 +20,7 @@ class ProjectService {
     }
   }
   async getProjectById(projectID) {
-      try {
+    try {
       const project = await prisma.project.findUnique({
         where: { id: Number(projectID) },
       });

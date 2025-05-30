@@ -87,12 +87,18 @@ async function setupPrismaSubscription(io) {
                     for (const alert of newAlerts) {
                         // Adjust field name based on your PostgreSQL schema
                         // If your alert field is called "Alert" in the database:
-                        const newAlert = alert.Alert || alert.alert;
+                        const newAlert = alert.alert;
                         
                         if (newAlert) {
                             console.log(`Emitting new alert: ${newAlert}`);
-                            io.emit("newAlert", newAlert);
-                            
+                            // io.emit("newAlert", newAlert);
+
+                            io.emit("newAlert", {
+                              id: alert.id,
+                              message: alertMessage,
+                              category: alert.category,
+                              timestamp: new Date().toISOString()
+                            });
                             // Send push notification using FCM API v1
                             const message = {
                                 notification: {
@@ -116,7 +122,7 @@ async function setupPrismaSubscription(io) {
             } catch (error) {
                 console.error("Error checking for new alerts:", error);
             }
-        }, 1000); // Check every second
+        }, 5000); // Check every second
         
         // Handle cleanup to prevent memory leaks
         process.on('SIGINT', () => {
