@@ -10,8 +10,9 @@ class AlertService {
           category: true,
         },
       });
-    } finally {
-      await prisma.$disconnect();
+    } catch (err) {
+      console.error("Error fetching all alerts:", err);
+      throw err;
     }
   }
 
@@ -23,8 +24,9 @@ class AlertService {
           category,
         },
       });
-    } finally {
-      await prisma.$disconnect();
+    } catch(err) {
+      console.log('failed to create the alert', err);
+      throw err
     }
   }
 
@@ -48,9 +50,7 @@ class AlertService {
     } catch (error) {
       console.error("Error fetching alerts:", error);
       throw error;
-    } finally {
-      await prisma.$disconnect();
-    }
+    } 
   }
 
   async getAllAlertsData() {
@@ -65,9 +65,7 @@ class AlertService {
     } catch (error) {
       console.error("Error fetching alerts:", error);
       throw error;
-    } finally {
-      await prisma.$disconnect();
-    }
+    } 
   }
 }
 
