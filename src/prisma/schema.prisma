@@ -91,3 +91,24 @@ model ProjectDate {
   projectID       Int
   project         Project  @relation(fields: [projectID], references: [id], onDelete: Cascade)
 }
+
+
+model Property {
+  id                   Int      @id @default(autoincrement())
+  propertyName         String
+  propertyLocation     String @db.Text
+  propertyAvailability String   
+  dailyPrice           String
+  hourlyPrice          String
+  dailyBookingLimit    String?
+  hourlyBookingLimit   String?
+  resourcesAvailable   String[]
+  careTakerContact     String[]
+  rules                String @db.Text
+  documentName         String[]
+  images               String[]
+  authorityName        String    
+  uploadedBy           String
+
+   @@map("Property") 
+}
